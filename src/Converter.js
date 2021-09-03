@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Style.css';
+require('dotenv').config();
 
 const BASE_URL = `http://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
 
@@ -40,6 +41,7 @@ class Converter extends Component{
             // fetch(`https://api.exchangeratesapi.io/latest?base=${this.state.base}`)
             .then(res => res.json())
             .then(data => {
+                console.log(process.env)
                 console.log(data)
                 const date = data.date;
                 const result = ((data.rates[this.state.convertTo] * amount)/(data.rates[this.state.base] * amount)).toFixed(4);
