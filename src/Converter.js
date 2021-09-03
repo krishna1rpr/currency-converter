@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Style.css';
 
-const BASE_URL = `http://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
+const BASE_URL = `https://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
 
 class Converter extends Component{
 
