@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import './Style.css';
 
-const BASE_URL = `http://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
+// const BASE_URL = `http://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
+const BASE_URL = `https://v6.exchangerate-api.com/v6/3a4d3712a3bb4820fb008eb5/latest/USD`;
 
 class Converter extends Component{
 
     
     state ={
         currencies: ['USD', 'AUD', 'SGD', 'PHP', 'EUR', 'INR'],
-        base: 'EUR',
+        base: 'USD',
         amount: '',
-        convertTo: 'USD',
+        convertTo: 'INR',
         result: '',
         date: ''
     }
@@ -41,8 +42,8 @@ class Converter extends Component{
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                const date = data.date;
-                const result = ((data.rates[this.state.convertTo] * amount)/(data.rates[this.state.base] * amount)).toFixed(4);
+                const date = data.time_last_update_utc;
+                const result = ((data.conversion_rates[this.state.convertTo] * amount)/(data.conversion_rates[this.state.base] * amount)).toFixed(4);
                 this.setState({
                     result, date
                 });
