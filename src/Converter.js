@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Style.css';
-require('dotenv').config();
 
 const BASE_URL = `http://api.exchangeratesapi.io/v1/latest?access_key=c70802bff03dbfa658e19241561b4880`;
 
